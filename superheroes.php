@@ -63,12 +63,12 @@ $superheroes = [
   ], 
 ];
 
-// Set content type to JSON for AJAX
+// Sets the content type to JSON for AJAX
 header('Content-Type: application/json');
 
 $query = isset($_GET['query']) ? strtolower(trim($_GET['query'])) : "";
 
-// Filter superheroes by query if provided
+// Filters superheroes by query if provided
 if ($query !== "") {
     $filtered = array_filter($superheroes, function($hero) use ($query) {
         return strpos(strtolower($hero['name']), $query) !== false || 

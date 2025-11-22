@@ -16,6 +16,7 @@
 body {
     font-family: Arial, sans-serif;
     padding: 20px;
+    background-color: #F0F0F0;
 }
 
 input {
@@ -39,7 +40,7 @@ button {
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 6px;
-    max-width: 600px;
+    max-width: 1600px;
 }
 
 #result h3 {
