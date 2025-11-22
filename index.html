@@ -1,18 +1,27 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <!-- Title of the page. -->
     <title>Superhero Search</title>
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
+    <h1 id="page-title">Avengers Characters Search</h1>
+    
+    <div class="container">   
 
-    <h1>Avengers Characters Search</h1>
+        <h3>Search by Full Name or Alias</h3>
 
-    <br>
+        <input type="text" id="search-input" placeholder="e.g. Captain America or Steve Rogers">
+        <button id="search-btn">Search</button>
 
-    <button id="search-btn">Search</button>
+        <!-- Result div -->
+        <h1>Result</h1> <hr>
+        <div id="result"></div>
 
-    <script src="app.js"></script>
+        <script src="app.js"></script>
+
+    </div>
+
 </body>
 </html>

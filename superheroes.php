@@ -63,10 +63,19 @@ $superheroes = [
   ], 
 ];
 
-?>
+// Set content type to JSON for AJAX
+header('Content-Type: application/json');
 
-<ul>
-<?php foreach ($superheroes as $superhero): ?>
-  <li><?= $superhero['alias']; ?></li>
-<?php endforeach; ?>
-</ul>
+$query = isset($_GET['query']) ? strtolower(trim($_GET['query'])) : "";
+
+// Filter superheroes by query if provided
+if ($query !== "") {
+    $filtered = array_filter($superheroes, function($hero) use ($query) {
+        return strpos(strtolower($hero['name']), $query) !== false || 
+               strpos(strtolower($hero['alias']), $query) !== false;
+    });
+    echo json_encode(array_values($filtered));
+} else {
+    // Return all superheroes if no query
+    echo json_encode($superheroes);
+}
