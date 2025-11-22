@@ -68,11 +68,11 @@ header('Content-Type: application/json');
 
 $query = isset($_GET['query']) ? strtolower(trim($_GET['query'])) : "";
 
-// Filters superheroes by query if provided
+// Filter superheroes by query if provided
 if ($query !== "") {
     $filtered = array_filter($superheroes, function($hero) use ($query) {
-        return strpos(strtolower($hero['name']), $query) !== false || 
-               strpos(strtolower($hero['alias']), $query) !== false;
+        return strtolower($hero['name']) === $query || 
+               strtolower($hero['alias']) === $query;
     });
     echo json_encode(array_values($filtered));
 } else {
